@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
-// const fs = require("fs");
-// const generatePage = require("./src/page-template");
+const fs = require("fs");
+const generatePage = require("./src/page-template");
 
 // const pageHTML = generatePage(name, github);
 
@@ -151,6 +151,48 @@ Add a New Project
     });
 };
 
-promptUser()
-  .then(promptProject)
-  .then((portfolioData) => console.log(portfolioData));
+// promptUser()
+//   .then(promptProject)
+//   .then((portfolioData) => {
+//     const pageHTML = generatePage(portfolioData);
+//     fs.writeFile("./index.html", pageHTML, (err) => {
+//       if (err) throw new Error(err);
+//       console.log(
+//         "Page created! Check out index.html in this directory to see it!"
+//       );
+//     });
+//   });
+
+const mockData = {
+  name: "Davy",
+  github: "davyjones",
+  confirmAbout: true,
+  about: "I am a pirate",
+  projects: [
+    {
+      name: "Pirate Ship Adventure",
+      description: "Learn to sail a pirate ship",
+      languages: [`HTML`, `CSS`, `JavaScript`],
+      link: "linktoship",
+      feature: true,
+      confirmAddProject: true,
+    },
+    {
+      name: "Swim Lessons",
+      description: "Learn to swim in the ocean with a pirate",
+      languages: [`HTML`, `CSS`, `JavaScript`, `JQuery`],
+      link: "linktoswimlessons",
+      feature: false,
+      confirmAddProject: false,
+    },
+  ],
+};
+
+const pageHTML = generatePage(mockData);
+
+fs.writeFile("./index.html", pageHTML, (err) => {
+  if (err) throw new Error(err);
+  console.log(
+    "Page created! Check out index.html in this directory to see it!"
+  );
+});
