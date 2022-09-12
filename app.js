@@ -183,6 +183,15 @@ const mockData = {
       languages: [`HTML`, `CSS`, `JavaScript`, `JQuery`],
       link: "linktoswimlessons",
       feature: false,
+      confirmAddProject: true,
+    },
+    {
+      name: "Gold Hunting",
+      description:
+        "Pirates love gold and so should you. Come with me on a quest for gold in the open ocean.",
+      languages: [`HTML`, `CSS`, `JavaScript`, `JQuery`],
+      link: "goldlink",
+      feature: false,
       confirmAddProject: false,
     },
   ],
